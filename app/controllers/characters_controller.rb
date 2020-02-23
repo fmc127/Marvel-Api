@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharactersController < ApplicationController
+class CharactersController < OpenReadController
   before_action :set_character, only: %i[show update destroy]
 
   # GET /characters
@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
 
   # POST /characters
   def create
-    @character = current_user.character.new(character_params)
+    @character = current_user.characters.new(character_params)
 
     if @character.save
       render json: @character, status: :created, location: @character
@@ -44,7 +44,7 @@ class CharactersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_character
-    @character = Character.find(params[:id])
+    @character = current_user.characters.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
