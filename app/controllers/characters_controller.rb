@@ -6,6 +6,7 @@ class CharactersController < OpenReadController
   # GET /characters
   def index
     @characters = Character.all
+    # @characters = current_user.characters
 
     render json: @characters
   end
