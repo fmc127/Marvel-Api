@@ -51,9 +51,10 @@ class CharactersController < OpenReadController
   # Only allow a trusted parameter "white list" through.
   def character_params
     params.require(:character).permit(
-                                      :alias,
-                                      :real_name,
-                                      :super_power,
-                                      :place_of_origin)
+      :alias,
+      :real_name,
+      :super_power,
+      :place_of_origin
+    )
   end
 end

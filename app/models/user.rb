@@ -3,4 +3,5 @@
 class User < ApplicationRecord
   include Authentication
   has_many :characters
+  has_many :vehicles
 end
